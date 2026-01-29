@@ -26,7 +26,7 @@ def review(req: ReviewReq, x_api_key: str | None = Header(default=None, alias="X
         raise HTTPException(status_code=401, detail="Unauthorized")
 
     # ToDO: call LLM
-    suggestion = "approve" if req.object_type.lower() in {"plm", "release"} else "review"
+    suggestion = "Approve" if req.object_type.lower() in {"plm", "release"} else "Reject"
     confidence = 0.86 if suggestion == "approve" else 0.62
 
     return {
