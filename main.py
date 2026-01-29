@@ -11,6 +11,10 @@ class ReviewReq(BaseModel):
     event_id: str
     object_type: str
 
+@app.get("/")
+async def root():
+    return {"message": "PLM AI Service"}
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
